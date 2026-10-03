@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADaSci // Enterprise AI Control Plane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">A</span><span>ADaSci</span><span class="brand-dot"></span></div>
+      <div class="workspace-label">CONTROL PLANE <span>v0.9.4</span></div>
+      <nav>
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">◈</span>Overview</button>
+        <button class="nav-item" data-view="architecture"><span class="nav-icon">⌘</span>Architecture</button>
+        <button class="nav-item" data-view="trace"><span class="nav-icon">↗</span>Request trace</button>
+        <button class="nav-item" data-view="security"><span class="nav-icon">▣</span>Security posture</button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="status-line"><span class="pulse"></span>All systems operational</div>
+        <div class="operator"><span class="avatar">HM</span><span><strong>Hema M.</strong><small>Platform architect</small></span><span class="more">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="breadcrumbs">WORKSPACE <span>/</span> CISO READINESS</div><div class="top-actions"><span class="env-badge"><span class="tiny-dot"></span>LOCAL DEMO</span><button class="icon-button" aria-label="Notifications">♢<i></i></button><button class="outline-button" id="exportBtn">Export SDD <span>↓</span></button></div></header>
+
+      <section class="hero view" data-view-panel="overview">
+        <div class="eyebrow"><span class="eyebrow-line"></span>ENTERPRISE AI PLATFORM</div>
+        <div class="hero-row"><div><h1>From prompt<br><em>to proof.</em></h1><p class="hero-copy">A reference architecture for governed, observable agentic systems. Designed for the questions security teams ask before production.</p></div><div class="hero-stamp"><span>SDD STATUS</span><strong>READY FOR REVIEW</strong><small>Last updated · 01 Oct 2026</small></div></div>
+        <div class="metric-grid"><div class="metric"><span>Architecture layers</span><strong>05</strong><small>Fully integrated</small></div><div class="metric"><span>Request path</span><strong>06<span class="metric-unit"> hops</span></strong><small>Traceable end-to-end</small></div><div class="metric"><span>Security controls</span><strong>18</strong><small>Mapped to threats</small></div><div class="metric accent-metric"><span>Telemetry coverage</span><strong>99.2<span class="metric-unit">%</span></strong><small>Last 24 hours <span class="up">↑ 2.4%</span></small></div></div>
+      </section>
+
+      <section class="section architecture-section view" data-view-panel="overview architecture">
+        <div class="section-heading"><div><span class="section-kicker">01 / SYSTEM MAP</span><h2>Five layers. One controlled path.</h2></div><button class="text-button" data-view-target="architecture">Open architecture <span>↗</span></button></div>
+        <div class="layer-map" id="layerMap"></div>
+      </section>
+
+      <section class="section trace-section view" data-view-panel="overview trace">
+        <div class="section-heading"><div><span class="section-kicker">02 / LIVE SIMULATION</span><h2>Follow a request through the system.</h2></div><button class="run-button" id="runTrace"><span>▶</span> Run sample request</button></div>
+        <div class="trace-card"><div class="trace-top"><div><span class="trace-label">SAMPLE REQUEST</span><p>“Summarize the latest policy exceptions for Project Atlas.”</p></div><div class="trace-status" id="traceStatus"><span class="status-ring"></span>Ready to run</div></div><div class="trace-path" id="tracePath"></div><div class="trace-footer"><span><b id="traceLatency">—</b> total latency</span><span><b>0.0 KB</b> prompt logged</span><span><b>US-EAST-1</b> region</span></div></div>
+      </section>
+
+      <section class="section lower-grid view" data-view-panel="overview security">
+        <div class="panel"><div class="panel-title"><div><span class="section-kicker">03 / SECURITY</span><h3>Control posture</h3></div><span class="score">A-</span></div><div class="control-row"><span class="control-icon green">✓</span><div><strong>Identity & access</strong><small>OIDC · RBAC · workload identity</small></div><span class="control-state">PASS</span></div><div class="control-row"><span class="control-icon green">✓</span><div><strong>Prompt governance</strong><small>Injection guardrails · PII redaction</small></div><span class="control-state">PASS</span></div><div class="control-row"><span class="control-icon amber">!</span><div><strong>Model egress</strong><small>External provider route restricted</small></div><span class="control-state amber-text">REVIEW</span></div><button class="panel-link" data-view-target="security">View threat model <span>↗</span></button></div>
+        <div class="panel telemetry-panel"><div class="panel-title"><div><span class="section-kicker">04 / OBSERVABILITY</span><h3>Signal health</h3></div><span class="live-label"><span class="pulse"></span>LIVE</span></div><div class="chart-wrap"><div class="chart-label"><span>Trace volume</span><strong>2,840 <small>events/hr</small></strong></div><div class="bars" id="bars"></div></div><div class="telemetry-bottom"><span>OpenTelemetry</span><span>Arize Phoenix</span><span>Langfuse</span></div></div>
+      </section>
+
+      <section class="detail-view" id="detailView"><div class="detail-header"><button class="back-button" id="backBtn">← Back to overview</button><span class="section-kicker" id="detailKicker">LAYER DETAIL</span></div><div class="detail-content" id="detailContent"></div></section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
